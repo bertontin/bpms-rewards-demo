@@ -3,19 +3,18 @@ JBoss BPM Suite Rewards Demo
 This is the HR employee rewards demo that provides examples of human task integration, form designer
 and a custom email work item handler.
 
-There are four options available to you for using this demo; local, Openshift Online, Red Hat CDK OpenShift Enterprise and
-Containerized.
+There are several options available to you for using this demo; local, containerized or on any OpenShift installation.
 
 
 Option 1 - Install on your machine
 ----------------------------------
-1. [Download and unzip.](https://github.com/jbossdemocentral/bpms-rewards-demo/archive/master.zip)
+1. [Download and unzip.](https://github.com/eschabell/bpms-rewards-demo/archive/master.zip)
 
 2. Add products to installs directory.
 
 3. Run 'init.sh' or 'init.bat' file. 'init.bat' must be run with Administrative privileges.
 
-4. Start JBoss BPMS Server by running 'standalone.sh' or 'standalone.bat' in the <path-to-project>/target/jboss-eap-6.4/bin directory.
+4. Follow instructions provided in console to start JBoss BPMS Server.
 
    ```
    # To view automated email notifications, start provided server as root/admin (see Notes below):
@@ -26,50 +25,22 @@ Option 1 - Install on your machine
    In fakeSMTP GUI click 'START SERVER' button or you will get 'Could not connect to SMTP host' errors. This does not prevent 
    the process from working, it just fails to send an email notification.
 
-5. Login to http://localhost:8080/business-central  (u:erics / p:bpmsuite1!).
-
-6. Rewards demo pre-installed as project.
-
-7. Read the documentation found in the docs directory & enjoy JBoss BPM Suite!
+Login to http://localhost:8080/business-central  (u:erics / p:bpmsuite1!).
 
 
-Option 2 - Install with one click in xPaaS (bpmPaaS)
+
+Option 2 - Install on Red Hat OpenShift installation
 ----------------------------------------------------
-After clicking button, ensure `Gear` size is set to `medium`:
-
-[![Click to install OpenShift](http://launch-shifter.rhcloud.com/launch/light/Install bpmPaaS.svg)](https://openshift.redhat.com/app/console/application_type/custom?&cartridges[]=https://raw.githubusercontent.com/jbossdemocentral/cartridge-bpmPaaS-rewards-demo/master/metadata/manifest.yml&name=rewards&gear_profile=medium&initial_git_url=)
-
-Once installed you can use the JBoss BPM Suite logins: 
-
-   * u:erics   p: bpmsuite  (admin)
-
-   * u: alan   p: bpmsuite  (analyst)
-
-   * u: daniel p: bpmsuite (developer)
-
-   * u: ursla  p: bpmsuite (user)
-
-   * u: mary   p: bpmsuite (manager)
-
-Note email notifications on user tasks will not work due to lack of port access. If you claim the task before 2 minutes expires and
-let it sit for longer than 1 minute without completing it will automatically reassign the task to the group.
-
-Current hosting of bpmPaaS is on JBoss BPM Suite 6.0.2 in OpenShift Online.
-
-
-Option 3 - Install on Red Hat CDK OpenShift Enterprise image
-------------------------------------------------------------
-The following steps can be used to install this demo on OpenShift Enterprise using the
-Red Hat Container Development Kit (CDK)
+The following steps can be used to install this demo on any OpenShift installation:
 
 1. [App Dev Cloud with JBoss BPM Rewards Demo](https://github.com/redhatdemocentral/rhcs-rewards-demo)
 
 
-Option 4 - Generate containerized installation
+Option 3 - Generate containerized installation
 ----------------------------------------------
 The following steps can be used to configure and run the demo in a container
 
-1. [Download and unzip.](https://github.com/jbossdemocentral/bpms-rewards-demo/archive/master.zip)
+1. [Download and unzip.](https://github.com/eschabell/bpms-rewards-demo/archive/master.zip)
 
 2. Add product installer to installs directory.
 
@@ -78,20 +49,15 @@ The following steps can be used to configure and run the demo in a container
 4. Build demo image.
 
 	```
-	docker build -t jbossdemocentral/bpms-rewards-demo .
+	docker build -t eschabell/bpms-rewards-demo .
 	```
 5. Start demo container
 
 	```
-	docker run -it -p 8080:8080 -p 9990:9990 jbossdemocentral/bpms-rewards-demo
+	docker run -it -p 8080:8080 -p 9990:9990 eschabell/bpms-rewards-demo
 	```
-6. Login to http://&lt;DOCKER_HOST&gt;:8080/business-central (u:erics / p:bpmsuite1!)
 
-7. Rewards demo pre-installed as project.
-
-8. Read the documentation found in the docs directory & enjoy JBoss BPM Suite!
-
-Additional information can be found in the jbossdemocentral docker [developer repository](https://github.com/jbossdemocentral/docker-developer)
+Login to http://:localhost:8080/business-central (u:erics / p:bpmsuite1!)
 
 
 Notes
@@ -164,9 +130,11 @@ Released versions
 -----------------
 See the tagged releases for the following versions of the product:
 
+- v2.3 - Forked back from JBoss Demo Central for updating to JBoss BPM Suite 6.4.0, JBoss EAP 7.0.0, rewards demo installed locally, containerized or on any OpenShift installation.
+
 - v2.2 - JBoss BPM Suite 6.3.0 on JBoss EAP 6.4.7 with travel agency installed and RH CDK on OSE Cloud install option.
 
-- v2.1 - JBoss BPM Suite 6.2.0-BZ-1299002 on JBoss EAP 6.4.4 with travel agency installed and RH CDK on OSE Cloud install option.
+- v2.1 - JBoss BPM Suite 6.2.0-BZ-1299002 on JBoss EAP 6.4.4 with rewards demo installed and RH CDK on OSE Cloud install option.
 
 - v2.0 - JBoss BPM Suite 6.2.0-BZ-1299002 on JBoss EAP 6.4.4 with rewards demo installed.
 
@@ -193,7 +161,7 @@ See the tagged releases for the following versions of the product:
 
 [![Video Rewards Run](https://raw.githubusercontent.com/eschabell/erics-images/master/brms_bpms_workshop/image309.png)](http://vimeo.com/ericschabell/bpms-hr-employee-rewards-demo-run)
 
-![Process](https://raw.githubusercontent.com/jbossdemocentral/bpms-rewards-demo/master/docs/demo-images/rewards-process.png)
+![Process](https://raw.githubusercontent.com/eschabell/bpms-rewards-demo/master/docs/demo-images/rewards-process.png)
 
-![Process & Task Dashboard](https://raw.githubusercontent.com/jbossdemocentral/bpms-rewards-demo/master/docs/demo-images/mock-bpm-data.png)
+![Process & Task Dashboard](https://raw.githubusercontent.com/eschabell/bpms-rewards-demo/master/docs/demo-images/mock-bpm-data.png)
 
