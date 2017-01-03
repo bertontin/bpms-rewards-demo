@@ -87,6 +87,8 @@ There is a workshop [available online](http://bpmworkshop-onthe.rhcloud.com) tha
 
 Supporting Articles
 -------------------
+- [App Dev in the Cloud - HR Employee Rewards Application on OpenShift](http://www.schabell.org/2017/01/appdev-in-cloud-hr-employee-rewards-app-openshift.html)
+
 - [How to put the JBoss HR Employee Rewards project into the Cloud](http://www.schabell.org/2016/05/howto-put-jboss-hr-employee-rewards-into-cloud.html)
 
 - [Quick Tour #6: Build & run a JBoss BPM Suite project (video)](http://www.schabell.org/2015/10/quick-tour-6-build-and-run-project.html)
